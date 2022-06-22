@@ -20,7 +20,7 @@
 ## 目录结构
 
 ```
-mall-go/
+cmall-go/
 ├── api
 ├── cache
 ├── conf
