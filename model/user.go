@@ -16,7 +16,7 @@ type User struct {
 	PasswordDigest string
 	Nickname       string `gorm:"unique"`
 	Status         string
-	Limit          int
+	Limit          int    // 未使用
 	Avatar         string `gorm:"size:1000"`
 	UserType       uint
 }
