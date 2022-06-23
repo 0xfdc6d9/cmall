@@ -18,3 +18,8 @@ const (
 func ProductViewKey(id uint) string {
 	return fmt.Sprintf("view:product:%s", strconv.Itoa(int(id)))
 }
+
+// ProjectViewKey 获取项目点击数的key
+func ProjectViewKey(id uint) string {
+	return fmt.Sprintf("view:project:%s", strconv.Itoa(int(id)))
+}

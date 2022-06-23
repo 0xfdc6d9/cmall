@@ -18,6 +18,7 @@ type User struct {
 	Status         string
 	Limit          int
 	Avatar         string `gorm:"size:1000"`
+	UserType       uint
 }
 
 const (
