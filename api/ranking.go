@@ -9,7 +9,7 @@ import (
 // ListRanking 排行
 func ListRanking(c *gin.Context) {
 	service := service.ListRankingService{}
-	res := service.List()
+	res := service.ListProjects()
 	c.JSON(200, res)
 
 }
