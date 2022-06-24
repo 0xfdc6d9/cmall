@@ -5,17 +5,16 @@ import (
 	"cmall/pkg/e"
 	"cmall/pkg/logging"
 	"cmall/serializer"
+	"time"
 )
 
 type CreateProjectService struct {
-	Name          string `form:"name" json:"name"`
-	CategoryID    int    `form:"category_id" json:"category_id"`
-	Info          string `form:"info" json:"info" binding:"max=1000"`
-	ImgPath       string `form:"img_path" json:"img_path"`
-	Raiser        uint   `form:"raiser" json:"raiser"`
-	RaisedAmount  int    `form:"raiser_amount" json:"raiser_amount"`
-	TargetAmount  int    `form:"target_amount" json:"target_amount"`
-	RemainingTime int    `form:"remaining_time" json:"remaining_time"`
+	Name          string    `form:"name" json:"name"`
+	CategoryID    int       `form:"category_id" json:"category_id"`
+	Info          string    `form:"info" json:"info" binding:"max=1000"`
+	Raiser        uint      `form:"raiser" json:"raiser"`
+	TargetAmount  int       `form:"target_amount" json:"target_amount"`
+	RemainingTime time.Time `form:"remaining_time" json:"remaining_time"`
 }
 
 // Create 创建众筹项目
@@ -24,9 +23,9 @@ func (service *CreateProjectService) Create() serializer.Response {
 		Name:          service.Name,
 		CategoryID:    service.CategoryID,
 		Info:          service.Info,
-		ImgPath:       service.ImgPath,
+		ImgPath:       "",
 		Raiser:        service.Raiser,
-		RaisedAmount:  service.RaisedAmount,
+		RaisedAmount:  0,
 		TargetAmount:  service.TargetAmount,
 		RemainingTime: service.RemainingTime,
 	}

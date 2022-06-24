@@ -40,7 +40,7 @@ func NewRouter() *gin.Engine {
 		v1.GET("imgs/:id", api.ShowProductImgs)
 		// 商品详情图片操作
 		v1.GET("info-imgs/:id", api.ShowInfoImgs)
-		//  商品参数图片操作
+		// 商品参数图片操作
 		v1.GET("param-imgs/:id", api.ShowParamImgs)
 		// 分类操作
 		v1.GET("categories", api.ListCategories)
@@ -88,6 +88,8 @@ func NewRouter() *gin.Engine {
 			authed.POST("payments", api.InitPay)
 			// 数量操作
 			authed.GET("counts/:id", api.ShowCount)
+			// 众筹项目操作
+			authed.POST("projects", api.CreateProject)
 		}
 
 	}

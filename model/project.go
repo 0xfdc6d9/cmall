@@ -4,6 +4,7 @@ import (
 	"cmall/cache"
 	"github.com/jinzhu/gorm"
 	"strconv"
+	"time"
 )
 
 type Project struct {
@@ -31,7 +32,7 @@ type Project struct {
 	TargetAmount int
 
 	// 剩余天数
-	RemainingTime int
+	RemainingTime time.Time
 }
 
 // View 获取点击数

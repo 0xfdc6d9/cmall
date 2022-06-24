@@ -3,7 +3,7 @@ package api
 import (
 	"cmall/pkg/logging"
 	"cmall/service"
-
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,6 +11,7 @@ import (
 func CreateProject(c *gin.Context) {
 	service := service.CreateProjectService{}
 	if err := c.ShouldBind(&service); err == nil {
+		fmt.Println(service.Name, service.CategoryID, service.Info, service.TargetAmount, service.RemainingTime)
 		res := service.Create()
 		c.JSON(200, res)
 	} else {

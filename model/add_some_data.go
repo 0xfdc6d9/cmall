@@ -1,6 +1,9 @@
 package model
 
-import "github.com/jinzhu/gorm"
+import (
+	"github.com/jinzhu/gorm"
+	"time"
+)
 
 func addSomeData() {
 	// 测试图床链接
@@ -30,7 +33,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  1000,
 		TargetAmount:  10000,
-		RemainingTime: 10,
+		RemainingTime: time.Now().AddDate(0, 0, 10),
 	}
 	DB.Create(&project)
 	project = Project{
@@ -42,7 +45,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  1001,
 		TargetAmount:  10001,
-		RemainingTime: 11,
+		RemainingTime: time.Now().AddDate(0, 0, 11),
 	}
 	DB.Create(&project)
 
@@ -56,7 +59,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  2000,
 		TargetAmount:  20000,
-		RemainingTime: 20,
+		RemainingTime: time.Now().AddDate(0, 0, 20),
 	}
 	DB.Create(&project)
 	project = Project{
@@ -68,7 +71,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  2001,
 		TargetAmount:  20001,
-		RemainingTime: 21,
+		RemainingTime: time.Now().AddDate(0, 0, 21),
 	}
 	DB.Create(&project)
 
@@ -82,7 +85,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  3000,
 		TargetAmount:  30000,
-		RemainingTime: 30,
+		RemainingTime: time.Now().AddDate(0, 0, 30),
 	}
 	DB.Create(&project)
 	project = Project{
@@ -94,7 +97,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  3001,
 		TargetAmount:  30001,
-		RemainingTime: 31,
+		RemainingTime: time.Now().AddDate(0, 0, 31),
 	}
 	DB.Create(&project)
 
@@ -108,7 +111,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  4000,
 		TargetAmount:  40000,
-		RemainingTime: 40,
+		RemainingTime: time.Now().AddDate(0, 0, 40),
 	}
 	DB.Create(&project)
 	project = Project{
@@ -120,7 +123,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  4001,
 		TargetAmount:  40001,
-		RemainingTime: 41,
+		RemainingTime: time.Now().AddDate(0, 0, 41),
 	}
 	DB.Create(&project)
 
@@ -134,7 +137,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  5000,
 		TargetAmount:  50000,
-		RemainingTime: 50,
+		RemainingTime: time.Now().AddDate(0, 0, 50),
 	}
 	DB.Create(&project)
 	project = Project{
@@ -146,7 +149,7 @@ func addSomeData() {
 		Raiser:        1,
 		RaisedAmount:  5001,
 		TargetAmount:  50001,
-		RemainingTime: 51,
+		RemainingTime: time.Now().AddDate(0, 0, 51),
 	}
 	DB.Create(&project)
 

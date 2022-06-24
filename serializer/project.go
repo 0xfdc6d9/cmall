@@ -1,17 +1,20 @@
 package serializer
 
-import "cmall/model"
+import (
+	"cmall/model"
+	"time"
+)
 
 type Project struct {
-	ID            uint   `json:"id"`
-	Name          string `json:"name"`
-	CategoryID    int    `json:"category_id"`
-	Info          string `json:"info"`
-	ImgPath       string `json:"img_path"`
-	Raiser        uint   `json:"raiser"`
-	RaisedAmount  int    `json:"raiser_amount"`
-	TargetAmount  int    `json:"target_amount"`
-	RemainingTime int    `json:"remaining_time"`
+	ID            uint      `json:"id"`
+	Name          string    `json:"name"`
+	CategoryID    int       `json:"category_id"`
+	Info          string    `json:"info"`
+	ImgPath       string    `json:"img_path"`
+	Raiser        uint      `json:"raiser"`
+	RaisedAmount  int       `json:"raiser_amount"`
+	TargetAmount  int       `json:"target_amount"`
+	RemainingTime time.Time `json:"remaining_time"`
 }
 
 // BuildProject 序列化众筹项目
