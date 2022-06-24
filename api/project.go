@@ -3,7 +3,6 @@ package api
 import (
 	"cmall/pkg/logging"
 	"cmall/service"
-	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +10,6 @@ import (
 func CreateProject(c *gin.Context) {
 	service := service.CreateProjectService{}
 	if err := c.ShouldBind(&service); err == nil {
-		fmt.Println(service.Name, service.CategoryID, service.Info, service.TargetAmount, service.RemainingTime)
 		res := service.Create()
 		c.JSON(200, res)
 	} else {
@@ -32,7 +30,7 @@ func ListProjects(c *gin.Context) {
 	}
 }
 
-// ShowProject 商品详情接口
+// ShowProject 众筹项目详情接口
 func ShowProject(c *gin.Context) {
 	service := service.ShowProjectService{}
 	res := service.Show(c.Param("id"))

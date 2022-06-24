@@ -6,15 +6,15 @@ import (
 )
 
 type Project struct {
-	ID            uint      `json:"id"`
-	Name          string    `json:"name"`
-	CategoryID    int       `json:"category_id"`
-	Info          string    `json:"info"`
-	ImgPath       string    `json:"img_path"`
-	Raiser        uint      `json:"raiser"`
-	RaisedAmount  int       `json:"raiser_amount"`
-	TargetAmount  int       `json:"target_amount"`
-	RemainingTime time.Time `json:"remaining_time"`
+	ID            uint   `json:"id"`
+	Name          string `json:"name"`
+	CategoryID    int    `json:"category_id"`
+	Info          string `json:"info"`
+	ImgPath       string `json:"img_path"`
+	Raiser        uint   `json:"raiser"`
+	RaisedAmount  int    `json:"raiser_amount"`
+	TargetAmount  int    `json:"target_amount"`
+	RemainingTime int    `json:"remaining_time"` // 剩余天数
 }
 
 // BuildProject 序列化众筹项目
@@ -28,7 +28,7 @@ func BuildProject(item model.Project) Project {
 		Raiser:        item.Raiser,
 		RaisedAmount:  item.RaisedAmount,
 		TargetAmount:  item.TargetAmount,
-		RemainingTime: item.RemainingTime,
+		RemainingTime: int(item.RemainingTime.Sub(time.Now()).Hours() / 24.0),
 	}
 }
 

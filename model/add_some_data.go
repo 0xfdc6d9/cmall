@@ -119,7 +119,7 @@ func addSomeData() {
 		Name:          "蘑菇",
 		CategoryID:    4,
 		Info:          "These are mushrooms",
-		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Fungi/mushrooms.jpg",
+		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Fungi/mushrooms.png",
 		Raiser:        1,
 		RaisedAmount:  4001,
 		TargetAmount:  40001,
@@ -127,13 +127,13 @@ func addSomeData() {
 	}
 	DB.Create(&project)
 
-	// Vegetable（蔬菜）
+	// Vegetables（蔬菜）
 	project = Project{
 		Model:         gorm.Model{},
 		Name:          "娃娃菜",
 		CategoryID:    5,
 		Info:          "These are baby cabbages",
-		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Vegetable/baby_cabbage.jpg",
+		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Vegetables/baby_cabbage.jpg",
 		Raiser:        1,
 		RaisedAmount:  5000,
 		TargetAmount:  50000,
@@ -145,7 +145,7 @@ func addSomeData() {
 		Name:          "芹菜",
 		CategoryID:    5,
 		Info:          "This is a celery",
-		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Vegetable/celery.jpg",
+		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Vegetables/celery.jpg",
 		Raiser:        1,
 		RaisedAmount:  5001,
 		TargetAmount:  50001,
@@ -153,4 +153,18 @@ func addSomeData() {
 	}
 	DB.Create(&project)
 
+	img := Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=1163554612,3551516054&fm=253&fmt=auto&app=138&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=2016877236,3054745581&fm=253&fmt=auto&app=138&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3311429087,2494892944&fm=253&fmt=auto&app=120&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3311650227,3405656599&fm=253&fmt=auto&app=138&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3816669153,3888900770&fm=253&fmt=auto&app=120&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3849579012,1932622733&fm=253&fmt=auto&app=138&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
+	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3935750666,263281849&fm=253&fmt=auto&app=120&f=JPEG.webp", ProductID: 6}
+	DB.Create(&img)
 }
