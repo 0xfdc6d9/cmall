@@ -18,5 +18,7 @@ func migration() {
 		AutoMigrate(&ProductParamImg{}).
 		AutoMigrate(&ProductInfoImg{}).
 		AutoMigrate(&Notice{}).
-		AutoMigrate(&UserAuth{})
+		AutoMigrate(&UserAuth{}).
+		//
+		AutoMigrate(&Project{})
 }
