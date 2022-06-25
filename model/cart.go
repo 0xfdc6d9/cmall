@@ -8,7 +8,7 @@ import (
 type Cart struct {
 	gorm.Model
 	UserID    uint
-	ProductID uint
+	ProjectID uint
 	Num       uint
 	MaxNum    uint
 	Check     bool

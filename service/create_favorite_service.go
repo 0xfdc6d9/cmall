@@ -10,18 +10,18 @@ import (
 // CreateFavoriteService 收藏创建的服务
 type CreateFavoriteService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
-	ProductID uint `form:"product_id" json:"product_id"`
+	ProjectID uint `form:"project_id" json:"project_id"`
 }
 
 // Create 创建收藏夹
 func (service *CreateFavoriteService) Create() serializer.Response {
 	var favorite model.Favorite
 	code := e.SUCCESS
-	model.DB.Where("user_id=? AND product_id=?", service.UserID, service.ProductID).Find(&favorite)
+	model.DB.Where("user_id=? AND project_id=?", service.UserID, service.ProjectID).Find(&favorite)
 	if favorite == (model.Favorite{}) {
 		favorite = model.Favorite{
 			UserID:    service.UserID,
-			ProductID: service.ProductID,
+			ProjectID: service.ProjectID,
 		}
 		if err := model.DB.Create(&favorite).Error; err != nil {
 			logging.Info(err)

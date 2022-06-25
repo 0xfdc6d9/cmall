@@ -9,8 +9,8 @@ import (
 
 // DeleteCartService 购物车删除的服务
 type DeleteCartService struct {
-	UserID    uint `form:"user_id" json:"user_id"`
-	ProductID uint `form:"product_id" json:"product_id"`
+	UserID   uint `form:"user_id" json:"user_id"`
+	rojectID uint `form:"roject_id" json:"roject_id"`
 }
 
 // Delete 删除购物车
@@ -18,7 +18,7 @@ func (service *DeleteCartService) Delete() serializer.Response {
 	var cart model.Cart
 	code := e.SUCCESS
 
-	err := model.DB.Where("user_id=? AND product_id=?", service.UserID, service.ProductID).Find(&cart).Error
+	err := model.DB.Where("user_id=? AND roject_id=?", service.UserID, service.rojectID).Find(&cart).Error
 	if err != nil {
 		logging.Info(err)
 		code = e.ERROR_DATABASE

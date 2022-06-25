@@ -90,8 +90,9 @@ func NewRouter() *gin.Engine {
 			authed.GET("counts/:id", api.ShowCount)
 			// 众筹项目操作
 			authed.POST("projects", api.CreateProject)
+			authed.DELETE("projects/:id", api.DeleteProject)
+			authed.PUT("projects", api.UpdateProject)
 		}
-
 	}
 	v2 := r.Group("/api/v2")
 	{

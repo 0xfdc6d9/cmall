@@ -10,7 +10,7 @@ import (
 // UpdateCartService 购物车修改的服务
 type UpdateCartService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
-	ProductID uint `form:"product_id" json:"product_id"`
+	ProjectID uint `form:"project_id" json:"project_id"`
 	Num       uint `form:"num" json:"num"`
 }
 
@@ -19,7 +19,7 @@ func (service *UpdateCartService) Update() serializer.Response {
 	var cart model.Cart
 	code := e.SUCCESS
 
-	err := model.DB.Where("user_id=? AND product_id=?", service.UserID, service.ProductID).Find(&cart).Error
+	err := model.DB.Where("user_id=? AND project_id=?", service.UserID, service.ProjectID).Find(&cart).Error
 	if err != nil {
 		logging.Info(err)
 		code = e.ERROR_DATABASE

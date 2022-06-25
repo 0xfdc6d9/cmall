@@ -36,3 +36,34 @@ func ShowProject(c *gin.Context) {
 	res := service.Show(c.Param("id"))
 	c.JSON(200, res)
 }
+
+// DeleteProject 删除众筹项目的接口
+func DeleteProject(c *gin.Context) {
+	service := service.DeleteProjectService{}
+	res := service.Delete(c.Param("id"))
+	c.JSON(200, res)
+}
+
+// UpdateProject 更新众筹项目的接口
+func UpdateProject(c *gin.Context) {
+	service := service.UpdateProjectService{}
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Update()
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+		logging.Info(err)
+	}
+}
+
+// SearchProjects 搜索众筹项目的接口
+func SearchProjects(c *gin.Context) {
+	service := service.SearchProjectsService{}
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Show()
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+		logging.Info(err)
+	}
+}

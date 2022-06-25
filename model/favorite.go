@@ -8,5 +8,5 @@ import (
 type Favorite struct {
 	gorm.Model
 	UserID    uint
-	ProductID uint
+	ProjectID uint
 }

@@ -7,18 +7,16 @@ import (
 	"cmall/serializer"
 )
 
-// DeleteFavoriteService 删除收藏的服务
-type DeleteFavoriteService struct {
-	UserID    uint `form:"user_id" json:"user_id"`
-	ProjectID uint `form:"project_id" json:"project_id"`
+// DeleteProjectService 删除商品的服务
+type DeleteProjectService struct {
 }
 
-// Delete 删除收藏
-func (service *DeleteFavoriteService) Delete() serializer.Response {
-	var favorite model.Favorite
+// Delete 删除商品
+func (service *DeleteProjectService) Delete(id string) serializer.Response {
+	var project model.Project
 	code := e.SUCCESS
 
-	err := model.DB.Where("user_id=? AND project_id=?", service.UserID, service.ProjectID).Find(&favorite).Error
+	err := model.DB.First(&project, id).Error
 	if err != nil {
 		logging.Info(err)
 		code = e.ERROR_DATABASE
@@ -29,7 +27,7 @@ func (service *DeleteFavoriteService) Delete() serializer.Response {
 		}
 	}
 
-	err = model.DB.Delete(&favorite).Error
+	err = model.DB.Delete(&project).Error
 	if err != nil {
 		logging.Info(err)
 		code = e.ERROR_DATABASE
