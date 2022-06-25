@@ -9,13 +9,13 @@ import (
 	"time"
 )
 
-// VaildEmailService 绑定、解绑邮箱和修改密码的服务
-type VaildEmailService struct {
+// ValidEmailService 绑定、解绑邮箱和修改密码的服务
+type ValidEmailService struct {
 	Token string `form:"token" json:"token"`
 }
 
-// Vaild 绑定邮箱
-func (service *VaildEmailService) Vaild() serializer.Response {
+// Valid 绑定邮箱
+func (service *ValidEmailService) Valid() serializer.Response {
 	var userID uint
 	var email string
 	var password string

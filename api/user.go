@@ -77,9 +77,9 @@ func SendEmail(c *gin.Context) {
 
 // ValidEmail 绑定和解绑邮箱接口
 func ValidEmail(c *gin.Context) {
-	var service service.VaildEmailService
+	var service service.ValidEmailService
 	if err := c.ShouldBind(&service); err == nil {
-		res := service.Vaild()
+		res := service.Valid()
 		c.JSON(200, res)
 	} else {
 		c.JSON(200, ErrorResponse(err))
@@ -96,7 +96,7 @@ func InitQQ(c *gin.Context) {
 
 // ValidQQ 查询，一键注册，绑定接口
 func ValidQQ(c *gin.Context) {
-	var service service.VaildQQService
+	var service service.ValidQQService
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Valid()
 		c.JSON(200, res)

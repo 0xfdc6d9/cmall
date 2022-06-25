@@ -72,7 +72,7 @@ OSS_END_POINT="oss-cn-shenzhen.aliyuncs.com"#你的仓库所在的阿里云对�
 OSS_ACCESS_KEY_ID=""#阿里云RAM访问控制用户ID
 OSS_ACCESS_KEY_SECRET=""#阿里云RAM访问控制KEY
 OSS_BUCKET=""#阿里云OSS仓库名
-VAILD_EMAIL="http://localhost:8080/#/vaild/email/" #本地环境邮箱验证地址
+VALID_EMAIL="http://localhost:8080/#/valid/email/" #本地环境邮箱验证地址
 
 #本项目用的是163邮箱STMP
 SMTP_HOST=""#163是smtp.163.com

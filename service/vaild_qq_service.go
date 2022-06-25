@@ -18,8 +18,8 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-// VaildQQService 查询，一键注册，绑定服务
-type VaildQQService struct {
+// ValidQQService 查询，一键注册，绑定服务
+type ValidQQService struct {
 	AuthorizationCode string `form:"authorization_code" json:"authorization_code"`
 }
 
@@ -41,7 +41,7 @@ type QQIDResult struct {
 }
 
 // Valid 绑定邮箱
-func (service *VaildQQService) Valid() serializer.Response {
+func (service *ValidQQService) Valid() serializer.Response {
 	code := e.SUCCESS
 	grantType := "authorization_code"
 	fmtType := "json"

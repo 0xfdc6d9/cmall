@@ -1,11 +1,10 @@
 package model
 
 import (
-	"os"
-
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
+	"os"
 )
 
 // User 用户模型

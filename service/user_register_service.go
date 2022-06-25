@@ -108,7 +108,7 @@ func (service *UserRegisterService) Register(userID, status interface{}) *serial
 		}
 	}
 
-	user.Avatar = "img/avatar/avatar1.jpg"
+	user.Avatar = "The_Mathematicians.jpg"
 
 	// 创建用户
 	if err := model.DB.Create(&user).Error; err != nil {

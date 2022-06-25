@@ -167,4 +167,25 @@ func addSomeData() {
 	DB.Create(&img)
 	img = Carousel{ImgPath: "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Carousel/u=3935750666,263281849&fm=253&fmt=auto&app=120&f=JPEG.webp", ProductID: 6}
 	DB.Create(&img)
+
+	notice := Notice{
+		Model: gorm.Model{},
+		Text:  "This is a notice",
+	}
+	DB.Create(&notice)
+	notice = Notice{
+		Model: gorm.Model{},
+		Text:  "执行绑定邮箱，ValidAddress",
+	}
+	DB.Create(&notice)
+	notice = Notice{
+		Model: gorm.Model{},
+		Text:  "执行解绑邮箱，ValidAddress",
+	}
+	DB.Create(&notice)
+	notice = Notice{
+		Model: gorm.Model{},
+		Text:  "执行改密码，ValidAddress",
+	}
+	DB.Create(&notice)
 }
