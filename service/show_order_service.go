@@ -16,7 +16,7 @@ type ShowOrderService struct {
 // Show 订单
 func (service *ShowOrderService) Show(num string) serializer.Response {
 	var order model.Order
-	var product model.Product
+	var project model.Project
 	code := e.SUCCESS
 	//根据id查找order
 	if err := model.DB.Where("order_num=?", num).First(&order).Error; err != nil {
@@ -27,8 +27,8 @@ func (service *ShowOrderService) Show(num string) serializer.Response {
 			Msg:    e.GetMsg(code),
 		}
 	}
-	//根据order查找product
-	if err := model.DB.Where("id=?", order.ProductID).First(&product).Error; err != nil {
+	//根据order查找project
+	if err := model.DB.Where("id=?", order.ProjectID).First(&project).Error; err != nil {
 		//如果查询不到，返回相应错误
 		if gorm.IsRecordNotFoundError(err) {
 			logging.Info(err)
@@ -49,6 +49,6 @@ func (service *ShowOrderService) Show(num string) serializer.Response {
 	return serializer.Response{
 		Status: code,
 		Msg:    e.GetMsg(code),
-		Data:   serializer.BuildOrder(order, product),
+		Data:   serializer.BuildOrder(order, project),
 	}
 }

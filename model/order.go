@@ -15,7 +15,7 @@ import (
 type Order struct {
 	gorm.Model
 	UserID       uint
-	ProductID    uint
+	ProjectID    uint
 	Num          uint
 	OrderNum     uint64
 	AddressName  string

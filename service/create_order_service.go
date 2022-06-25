@@ -18,7 +18,7 @@ import (
 // CreateOrderService 订单创建的服务
 type CreateOrderService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
-	ProductID uint `form:"product_id" json:"product_id"`
+	ProjectID uint `form:"project_id" json:"project_id"`
 	Num       uint `form:"num" json:"num"`
 	AddressID uint `form:"address_id" json:"address_id"`
 }
@@ -27,7 +27,7 @@ type CreateOrderService struct {
 func (service *CreateOrderService) Create() serializer.Response {
 	order := model.Order{
 		UserID:    service.UserID,
-		ProductID: service.ProductID,
+		ProjectID: service.ProjectID,
 		Num:       service.Num,
 		Type:      1,
 	}
@@ -48,9 +48,9 @@ func (service *CreateOrderService) Create() serializer.Response {
 	order.Address = address.Address
 	//生成随机订单号
 	number := fmt.Sprintf("%09v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000000))
-	productNum := strconv.Itoa(int(service.ProductID))
+	projectNum := strconv.Itoa(int(service.ProjectID))
 	userNum := strconv.Itoa(int(service.UserID))
-	number = number + productNum + userNum
+	number = number + projectNum + userNum
 	orderNum, err := strconv.ParseUint(number, 10, 64)
 	if err != nil {
 		logging.Info(err)
@@ -73,8 +73,10 @@ func (service *CreateOrderService) Create() serializer.Response {
 			Error:  err.Error(),
 		}
 	}
+	// TODO 将筹资金额加入到对应项目的已筹资金额
+
 	//将订单号存入Redis,并设置过期时间
-	data := redis.Z{Score: float64(time.Now().Unix()) + 15*time.Minute.Seconds(), Member: orderNum}
+	data := redis.Z{Score: float64(time.Now().Unix()) + 60*time.Minute.Seconds(), Member: orderNum}
 	cache.RedisClient.ZAdd(os.Getenv("REDIS_ZSET_KEY"), data)
 
 	return serializer.Response{

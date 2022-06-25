@@ -29,11 +29,11 @@ func NewRouter() *gin.Engine {
 		// 邮箱绑定解绑接口
 		v1.POST("user/vaild-email", api.ValidEmail)
 		// 商品操作
-		v1.GET("products", api.ListProducts)
-		v1.GET("products/:id", api.ShowProduct)
+		//v1.GET("products", api.ListProducts)
+		//v1.GET("products/:id", api.ShowProduct)
 		// 众筹项目操作
 		v1.GET("projects", api.ListProjects)
-		v1.GET("projects/:id", api.ShowProject)
+		v1.GET("products/:id", api.ShowProject)
 		// 轮播图操作
 		v1.GET("carousels", api.ListCarousels)
 		// 商品图片操作
@@ -45,7 +45,7 @@ func NewRouter() *gin.Engine {
 		// 分类操作
 		v1.GET("categories", api.ListCategories)
 		// 搜索操作
-		v1.POST("searches", api.SearchProducts)
+		v1.POST("searches", api.SearchProjects)
 		// 排行榜/热门
 		v1.GET("rankings", api.ListRanking)
 		v1.GET("elec-rankings", api.ListElecRanking)

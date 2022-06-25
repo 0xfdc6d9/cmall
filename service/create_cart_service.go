@@ -45,7 +45,7 @@ func (service *CreateCartService) Create() serializer.Response {
 			UserID:    service.UserID,
 			ProjectID: service.ProjectID,
 			Num:       1,
-			MaxNum:    10,
+			MaxNum:    1000000,
 			Check:     false,
 		}
 

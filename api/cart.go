@@ -3,7 +3,6 @@ package api
 import (
 	"cmall/pkg/logging"
 	"cmall/service"
-
 	"github.com/gin-gonic/gin"
 )
 
