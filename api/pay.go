@@ -30,3 +30,14 @@ func ConfirmPay(c *gin.Context) {
 		logging.Info(err)
 	}
 }
+
+func FalsePay(c *gin.Context) {
+	service := service.FalsePayService{}
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Upd()
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+		logging.Info(err)
+	}
+}

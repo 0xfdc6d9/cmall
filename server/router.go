@@ -92,6 +92,8 @@ func NewRouter() *gin.Engine {
 			authed.POST("projects", api.CreateProject)
 			authed.DELETE("projects/:id", api.DeleteProject)
 			authed.PUT("projects", api.UpdateProject)
+			// falsePay
+			authed.POST("falsepay", api.FalsePay)
 		}
 	}
 	v2 := r.Group("/api/v2")

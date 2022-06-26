@@ -73,10 +73,9 @@ func (service *CreateOrderService) Create() serializer.Response {
 			Error:  err.Error(),
 		}
 	}
-	// TODO 将筹资金额加入到对应项目的已筹资金额
 
 	//将订单号存入Redis,并设置过期时间
-	data := redis.Z{Score: float64(time.Now().Unix()) + 60*time.Minute.Seconds(), Member: orderNum}
+	data := redis.Z{Score: float64(time.Now().Unix()) + 15*time.Minute.Seconds(), Member: orderNum}
 	cache.RedisClient.ZAdd(os.Getenv("REDIS_ZSET_KEY"), data)
 
 	return serializer.Response{
