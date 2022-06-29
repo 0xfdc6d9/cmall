@@ -7,14 +7,14 @@ import (
 	"cmall/serializer"
 )
 
-// UpdateCartService 购物车修改的服务
+// UpdateCartService 项目预投修改的服务
 type UpdateCartService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
 	ProjectID uint `form:"project_id" json:"project_id"`
 	Num       uint `form:"num" json:"num"`
 }
 
-// Update 修改购物车信息
+// Update 修改项目预投信息
 func (service *UpdateCartService) Update() serializer.Response {
 	var cart model.Cart
 	code := e.SUCCESS

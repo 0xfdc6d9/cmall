@@ -7,13 +7,13 @@ import (
 	"cmall/serializer"
 )
 
-// CreateCartService 购物车创建的服务
+// CreateCartService 项目预投创建的服务
 type CreateCartService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
 	ProjectID uint `form:"project_id" json:"project_id"`
 }
 
-// Create 创建购物车
+// Create 创建项目预投
 func (service *CreateCartService) Create() serializer.Response {
 	var project model.Project
 	code := e.SUCCESS
@@ -39,7 +39,7 @@ func (service *CreateCartService) Create() serializer.Response {
 	}
 	var cart model.Cart
 	model.DB.Where("user_id=? AND project_id=?", service.UserID, service.ProjectID).Find(&cart)
-	//如果不存在该购物车则创建
+	//如果不存在该项目预投则创建
 	if cart == (model.Cart{}) {
 		cart = model.Cart{
 			UserID:    service.UserID,
@@ -64,7 +64,7 @@ func (service *CreateCartService) Create() serializer.Response {
 			Msg:    e.GetMsg(code),
 			Data:   serializer.BuildCart(cart, project),
 		}
-	} else if cart.Num < cart.MaxNum { //如果存在该购物车且num小于maxnum
+	} else if cart.Num < cart.MaxNum { //如果存在该项目预投且num小于maxnum
 		cart.Num++
 		err = model.DB.Save(&cart).Error
 		if err != nil {
@@ -78,7 +78,7 @@ func (service *CreateCartService) Create() serializer.Response {
 		}
 		return serializer.Response{
 			Status: 201,
-			Msg:    "商品已在购物车，数量+1",
+			Msg:    "商品已在项目预投，数量+1",
 			Data:   serializer.BuildCart(cart, project),
 		}
 	} else {

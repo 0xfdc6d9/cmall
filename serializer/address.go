@@ -15,7 +15,7 @@ type Address struct {
 	CreatedAt int64  `json:"created_at"`
 }
 
-// BuildAddress 收货地址购物车
+// BuildAddress 收货地址项目预投
 func BuildAddress(item model.Address) Address {
 	return Address{
 		ID:        item.ID,

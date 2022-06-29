@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// Cart 购物车序列化器
+// Cart 项目预投序列化器
 type Cart struct {
 	ID            uint   `json:"id"`
 	UserID        uint   `json:"user_id"`
@@ -22,7 +22,7 @@ type Cart struct {
 	RemainingTime int    `json:"remaining_time"` // 剩余天数
 }
 
-// BuildCart 序列化购物车
+// BuildCart 序列化项目预投
 func BuildCart(item1 model.Cart, item2 model.Project) Cart {
 	return Cart{
 		ID:            item1.ID,
@@ -41,7 +41,7 @@ func BuildCart(item1 model.Cart, item2 model.Project) Cart {
 	}
 }
 
-// BuildCarts 序列化购物车列表
+// BuildCarts 序列化项目预投列表
 func BuildCarts(items []model.Cart) (carts []Cart) {
 	for _, item1 := range items {
 		item2 := model.Project{}

@@ -40,5 +40,5 @@ func Database(connString string) {
 	migration()
 
 	// 加载数据库中的初始数据，如初始轮播图的图片路径
-	addSomeData()
+	//addSomeData()
 }

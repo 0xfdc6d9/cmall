@@ -7,12 +7,12 @@ import (
 	"cmall/serializer"
 )
 
-// DeleteAddressService 购物车删除的服务
+// DeleteAddressService 项目预投删除的服务
 type DeleteAddressService struct {
 	AddressID uint `form:"address_id" json:"address_id"`
 }
 
-// Delete 删除购物车
+// Delete 删除项目预投
 func (service *DeleteAddressService) Delete() serializer.Response {
 	var address model.Address
 	code := e.SUCCESS

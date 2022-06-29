@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// CreateCart 加入购物车
+// CreateCart 加入项目预投
 func CreateCart(c *gin.Context) {
 	service := service.CreateCartService{}
 	if err := c.ShouldBind(&service); err == nil {
@@ -18,14 +18,14 @@ func CreateCart(c *gin.Context) {
 	}
 }
 
-// ShowCarts 购物车详情接口
+// ShowCarts 项目预投详情接口
 func ShowCarts(c *gin.Context) {
 	service := service.ShowCartsService{}
 	res := service.Show(c.Param("id"))
 	c.JSON(200, res)
 }
 
-// UpdateCart 修改购物车信息
+// UpdateCart 修改项目预投信息
 func UpdateCart(c *gin.Context) {
 	service := service.UpdateCartService{}
 	if err := c.ShouldBind(&service); err == nil {
@@ -37,7 +37,7 @@ func UpdateCart(c *gin.Context) {
 	}
 }
 
-// DeleteCart 删除购物车
+// DeleteCart 删除项目预投
 func DeleteCart(c *gin.Context) {
 	service := service.DeleteCartService{}
 	if err := c.ShouldBind(&service); err == nil {

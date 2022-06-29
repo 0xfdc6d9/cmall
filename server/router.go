@@ -74,7 +74,7 @@ func NewRouter() *gin.Engine {
 			authed.POST("orders", api.CreateOrder)
 			authed.GET("user/:id/orders", api.ListOrders)
 			authed.GET("orders/:num", api.ShowOrder)
-			// 购物车操作
+			// 项目预投操作
 			authed.POST("carts", api.CreateCart)
 			authed.GET("carts/:id", api.ShowCarts)
 			authed.PUT("carts", api.UpdateCart)

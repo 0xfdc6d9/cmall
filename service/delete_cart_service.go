@@ -7,13 +7,13 @@ import (
 	"cmall/serializer"
 )
 
-// DeleteCartService 购物车删除的服务
+// DeleteCartService 项目预投删除的服务
 type DeleteCartService struct {
 	UserID    uint `form:"user_id" json:"user_id"`
 	ProjectID uint `form:"project_id" json:"project_id"`
 }
 
-// Delete 删除购物车
+// Delete 删除项目预投
 func (service *DeleteCartService) Delete() serializer.Response {
 	var cart model.Cart
 	code := e.SUCCESS

@@ -23,7 +23,7 @@ func (service *CreateProjectService) Create() serializer.Response {
 		Name:          service.Name,
 		CategoryID:    service.CategoryID,
 		Info:          service.Info,
-		ImgPath:       "",
+		ImgPath:       "https://hjm-cmall.oss-cn-hangzhou.aliyuncs.com/Foodstuff/potata.jpg",
 		Raiser:        service.Raiser,
 		RaisedAmount:  0,
 		TargetAmount:  service.TargetAmount,

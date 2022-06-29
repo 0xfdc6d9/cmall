@@ -7,7 +7,7 @@ import (
 	"cmall/serializer"
 )
 
-// ShowCountService 展示收货地址的服务
+// ShowCountService 展示收藏夹数量、未支付订单数量、已支付订单数量的服务
 type ShowCountService struct {
 }
 

@@ -16,7 +16,7 @@ type UpdateAddressService struct {
 	Address string `form:"address" json:"address"`
 }
 
-// Update 修改购物车信息
+// Update 修改项目预投信息
 func (service *UpdateAddressService) Update() serializer.Response {
 	address := model.Address{
 		UserID:  service.UserID,
